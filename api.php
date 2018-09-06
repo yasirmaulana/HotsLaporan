@@ -1,6 +1,6 @@
 <?php
 
-$conn = new mysqli("localhost", "root", " ", " ");
+$conn = new mysqli("localhost", "root", "", "");
 if($conn->connect_error){
   die("Could not connect to database!");
 }
@@ -42,17 +42,29 @@ if($action == 'readGrup'){
   $res['groups'] = $groups;
 }
 
-// MENAMPILKAN DATA FASIL
-// if($action == 'readFasil'){
-//   $result = $conn->query("SELECT * FROM hots_fasil WHERE status = 1 ORDER BY nama");
-//   $fasils = array();
+// MENYIMPAN DATA LAPORAN
+if($action == 'simpanLaporan'){
+  $id_admin = $_POST['id_admin'];
+  $id_grup = $_POST['id_grup'];
+  $memberAktiv = $_POST['memberAktiv'];
+  $memberPasif = $_POST['memberPasif'];
+  $statusGrup = $_POST['statusGrup'];
 
-//   while($row = $result->fetch_assoc()){
-//     array_push($fasils, $row);
-//   }
+  $result = $conn->query("INSERT INTO hots_laporan_group(id_grup, memberAktiv, memberPasif, statusGrup) 
+                          VALUES ('$id_admin', '$id_grup', '$memberAktiv', '$memberPasif', '$statusGrup')");
 
-//   $res['fasils'] = $fasils;
-// }
+  $cek = "INSERT INTO hots_laporan_group(id_admin, id_grup, memberAktiv, memberPasif, statusGrup) 
+          VALUES ('$id_admin', '$id_grup', '$memberAktiv', '$memberPasif', '$statusGrup')";
+
+  if($result){
+    $res['message'] = "laporan berhasil tersimpan";
+  } else {
+    $res['error'] = $cek;
+  }
+
+  $res['persons'] = $persons; 
+
+}
 
 
 

@@ -15,7 +15,8 @@
       <div class="row">
 
           <div class="col-xs-12 col-sm-12 col-lg-12">
-            <h3>Form Input Laporan Grup</h3>
+            <h3>Form Input Laporan Grup Hots</h3>
+            <br>
             <form>
               <div class="form-group">
                 <label for="ad">Admin :</label><br>
@@ -24,7 +25,8 @@
                   <option v-for="admin in this.arrAdmin" :value="admin.id">{{admin.nama}}</option>
                 </select>
               </div>
-              <!-- {{this.arrGrup}} -->
+              {{this.newReport.id_admin}}
+              {{arrGrup}}
               <div class="form-group">
                 <label for="gp">Nomor Grup - Surah - Reviewer - Fasil :</label><br>
                 <select id="gp" v-model="newReport.id_grup">
@@ -32,9 +34,26 @@
                   <option v-for="grup in this.arrGrup" :value="grup.nomor_grup">{{grup.nomor_grup}}-{{grup.surah}}-{{grup.reviewer}}-{{grup.fasil}}</option>
                 </select>
               </div>
-
-                  
-              <a class="btn btn-success" type="submit" name="action" @click="saveHotser()">Input Laporan</a>
+              {{newReport.id_grup}}
+              <div class="form-group">
+                <label for="">Jumlah Hotser Aktif :</label>
+                <input type="text" class="form-control" v-model="newReport.memberAktiv">
+              </div>
+              {{newReport.memberAktiv}}
+              <div class="form-group">
+                <label for="">Jumlah Hotser Pasif :</label>
+                <input type="text" class="form-control" v-model="newReport.memberPasif">
+              </div>
+              {{newReport.memberPasif}}
+              <div class="form-group">
+                <label for="sg">Status Grup :</label><br>
+                <select id="sg" v-model="newReport.statusGrup">
+                  <option value="" disabled selected>Pilih Status Grup</option>
+                  <option v-for="status in this.arrStatus" :value="status.val">{{status.tag}}</option>
+                </select>
+              </div>
+              {{newReport.statusGrup}}
+              <a class="btn btn-success" type="submit" name="action" @click="saveLaporan()">Input Laporan</a>
             </form>
           </div>
 
