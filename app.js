@@ -106,7 +106,7 @@ var app = new Vue({
         axios.post(url+"simpanLaporan", formData)
           .then(function(response){
             swal('Laporan Grup Hots', 'Laporan berhasil diinput', 'success')
-            console.log(response)
+            // console.log(response)
           })
           .catch(function(error){
             swall({

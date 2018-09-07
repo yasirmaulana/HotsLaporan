@@ -44,17 +44,16 @@ if($action == 'readGrup'){
 
 // MENYIMPAN DATA LAPORAN
 if($action == 'simpanLaporan'){
+
   $id_admin = $_POST['id_admin'];
   $id_grup = $_POST['id_grup'];
   $memberAktiv = $_POST['memberAktiv'];
   $memberPasif = $_POST['memberPasif'];
   $statusGrup = $_POST['statusGrup'];
 
-  $result = $conn->query("INSERT INTO hots_laporan_group(id_grup, memberAktiv, memberPasif, statusGrup) 
-                          VALUES ('$id_admin', '$id_grup', '$memberAktiv', '$memberPasif', '$statusGrup')");
+  $result = $conn->query("INSERT INTO hots_laporan_group(id_admin, id_grup, memberAktiv, memberPasif, statusGrup) VALUES ('$id_admin', '$id_grup', '$memberAktiv', '$memberPasif', '$statusGrup')");
 
-  $cek = "INSERT INTO hots_laporan_group(id_admin, id_grup, memberAktiv, memberPasif, statusGrup) 
-          VALUES ('$id_admin', '$id_grup', '$memberAktiv', '$memberPasif', '$statusGrup')";
+  $cek = "INSERT INTO hots_laporan_group(id_grup, memberAktiv, memberPasif, statusGrup) VALUES ('$id_admin', '$id_grup', '$memberAktiv', '$memberPasif', '$statusGrup')";
 
   if($result){
     $res['message'] = "laporan berhasil tersimpan";
@@ -62,7 +61,7 @@ if($action == 'simpanLaporan'){
     $res['error'] = $cek;
   }
 
-  $res['persons'] = $persons; 
+  $res['persons'] = $result; 
 
 }
 
