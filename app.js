@@ -1,7 +1,9 @@
-var url = "http://localhost/HotsLaporan/api.php?action="
+var url = "http://localhost/hots/hotsadmin/api.php?action="
+// var url = "http://hots.kauny.com/hotsadmin/api.php?action="
+
 var app = new Vue({
   el: "#root",
-  
+
   data: {
     arrAdmin: [],
     arrGrup: [],
@@ -29,7 +31,7 @@ var app = new Vue({
       axios.get(url+"readAdmin")
        .then(function(response){
          app.arrAdmin = response.data.admins
-        //  console.log('>>>>>>>>>>>>> admin')
+        //  console.log('>>>>>>>>>>>>> admin',app.arrAdmin)
        })
        .catch(function(error){
         //  console.log('============',error)

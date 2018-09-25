@@ -1,11 +1,6 @@
 <?php
 
-$conn = new mysqli("localhost", "root", "", "");
-if($conn->connect_error){
-  die("Could not connect to database!");
-}
-
-// include_once '../../includes/connectionJson.inc';
+include_once '../../hots/koneksi.inc';
 
 $res = array('error' => false);
 
@@ -61,16 +56,12 @@ if($action == 'simpanLaporan'){
     $res['error'] = $cek;
   }
 
-  $res['persons'] = $result; 
+  $res['persons'] = $result;
 
 }
-
-
 
 $conn->close();
 
 header("Content-type: application/json");
 echo json_encode($res);
 die();
-
-// include_once '../../includes/connectionJson_close.inc';
