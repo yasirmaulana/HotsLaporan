@@ -54,8 +54,8 @@
                 </select>
               </div>
               <!-- {{newReport.statusGrup}} -->
-              <a class="btn btn-success" type="submit" name="action" @click="saveLaporan()">Save</a>
-              <a class="btn btn-warning" href="/hots/index.html" type="submit">Cancel</a>
+              <a class="btn btn-success" type="submit" name="action" @click="saveLaporan()">save</a>
+              <a class="btn btn-info" href="/hots/index.html" type="submit">back to forward</a>
             </form>
           </div>
 

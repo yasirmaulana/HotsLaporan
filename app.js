@@ -1,5 +1,5 @@
-var url = "http://localhost/hots/hotsadmin/api.php?action="
 // var url = "http://hots.kauny.com/hotsadmin/api.php?action="
+var url = "http://localhost/hots/hotsadmin/api.php?action="
 
 var app = new Vue({
   el: "#root",
